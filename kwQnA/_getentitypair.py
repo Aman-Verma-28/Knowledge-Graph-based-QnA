@@ -39,9 +39,8 @@ class GetEntity:
             # pos = [token.pos_ for token in one_sentence]
             # label = [token.label_ for token in one_sentence.ents]
 
-            normal_sent_ = self.complex.normal_sent(one_sentence)
 
-            if normal_sent_:
+            if normal_sent_ := self.complex.normal_sent(one_sentence):
                 for pair in normal_sent_:
                     ent_pairs.append(pair)
 

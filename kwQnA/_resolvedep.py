@@ -208,11 +208,10 @@ class change_nouns:
         # , ["subj", "ROOT", "dobj"], ["subj", "ROOT", "pobj"], ["nsubj", "ROOT", "obj"], ["nsubj", "ROOT", "dobj"], ["nsubj", "ROOT", "pobj"], ["nsubjpass", "ROOT", "obj"], ["nsubjpass", "ROOT", "dobj"], ["nsubjpass", "ROOT", "pobj"]]
 
         for list1 in depen:
-            check = all(item in list1 for item in list2)
             #
             # print(list1)
 
-            if check:
+            if check := all(item in list1 for item in list2):
                 # print(depen, x)
                 return True, depen, x
 
@@ -227,8 +226,7 @@ class change_nouns:
         for i in depen:
             newcount += 1
             list1 = i
-            check = all(item in list1 for item in list2)
-            if check:
+            if check := all(item in list1 for item in list2):
                 lista = [str(w) for w in sentence]
 
                 p1 = lista[:pos_of_and[newcount]]

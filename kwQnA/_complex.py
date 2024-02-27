@@ -104,8 +104,7 @@ class ComplexFunc:
         subject_list = []
         # """ SUBJECT FINDING loop"""
         dep_word = [word.dep_ for word in sentence]
-        word_dep_count_subj = [dep_word.index(word) for word in dep_word if word in ('nsubj', 'subj', 'nsubjpass')]
-        if word_dep_count_subj:
+        if word_dep_count_subj := [dep_word.index(word) for word in dep_word if word in ('nsubj', 'subj', 'nsubjpass')]:
             word_dep_count_subj = word_dep_count_subj[0] + 1
         else:
             word_dep_count_subj = 1
@@ -145,9 +144,8 @@ class ComplexFunc:
     def find_relation(self, buffer_obj):
         aux_relation = ""
         # RELATION FINDING loop
-        relation = [w for w in buffer_obj.ancestors if w.dep_ =='ROOT']
 
-        if relation:
+        if relation := [w for w in buffer_obj.ancestors if w.dep_ =='ROOT']:
             relation = relation[0]
             sp_relation = relation
             if relation.nbor(1).pos_ in ('VERB'):
